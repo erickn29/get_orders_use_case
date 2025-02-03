@@ -15,7 +15,7 @@ class FileServiceProtocol(Protocol):
         pass
 
 
-class FileService:
+class FileServiceV1:
     repository = FileRepository
 
     def read_file_binary(self, path_to_file: str) -> bytes | None:

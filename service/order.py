@@ -1,7 +1,12 @@
 from filemanager.models import File
 from order.models import Distributor, Order
 from order.protocol.repository_main import OrderRepositoryProtocol
-from order.repository.order import UfarmaOrderRepository
+from order.repository.order import (
+    DimfarmOrderRepository,
+    EaptekaOrderRepository,
+    SmartAptekaOrderRepository,
+    UfarmaOrderRepository,
+)
 from order.schema.order import OrderSchema, OrderSchemaFromFile
 from utils.other import log
 
@@ -15,9 +20,9 @@ class OrderService:
     def __get_repository(self):
         repositories = {
             Distributor.Protocol.UFARMA: UfarmaOrderRepository,
-            Distributor.Protocol.DIMFARM: None,
-            Distributor.Protocol.EAPTEKA: None,
-            Distributor.Protocol.SMART_APTEKA: None,
+            Distributor.Protocol.DIMFARM: DimfarmOrderRepository,
+            Distributor.Protocol.EAPTEKA: EaptekaOrderRepository,
+            Distributor.Protocol.SMART_APTEKA: SmartAptekaOrderRepository,
         }
         repository = repositories.get(self.protocol)
         if not repository:

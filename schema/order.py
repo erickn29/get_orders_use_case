@@ -31,9 +31,9 @@ class OrderSchemaFromFile(BaseModel):
     numz: str = Field(max_length=10)
     date: datetime | None = None
     datez: datetime | None = None
-    code: str = Field(max_length=16, alias="codepst")
+    code: str = Field(max_length=16)
     name: str | None = None
-    qtty: int = Field(None, alias="qnt")
+    qtty: int | None = None
     podrcd: str = Field(max_length=64)
     price: float | None = None
     podr: str = Field("", max_length=255)

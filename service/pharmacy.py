@@ -5,12 +5,15 @@ from order.repository.pharmacy import PharmacyRepository
 
 
 class PharmacyServiceProtocol(Protocol):
+    def __init__(self):
+        pass
+
     def find(self, **filters) -> Pharmacy | None:
         """Поиск аптеки по фильтрам"""
         pass
 
 
-class PharmacyService:
+class PharmacyServiceV1:
     repository = PharmacyRepository
 
     def __init__(self):

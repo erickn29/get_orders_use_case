@@ -9,6 +9,12 @@ from utils.ftp_server import FTPServer
 
 
 class FTPServerProtocol(Protocol):
+    def __get_server(self, ftp: FTP):
+        pass
+
+    def __get_local_filepath(self, ftp: FTP, file_name: str):
+        pass
+
     def upload_file(self, file_path: str, file_name: str) -> bool:
         """Загружает файл на сервер в папку по указанному пути"""
         pass
